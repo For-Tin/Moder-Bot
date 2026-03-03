@@ -1,7 +1,11 @@
 import disnake
 from disnake.ext import commands
+
 import os
 from dotenv import load_dotenv
+
+import supabase
+from supabase import create_client
 
 class Client(commands.Bot):
 
@@ -20,14 +24,20 @@ class Client(commands.Bot):
 
 if __name__ == "__main__":
 
-    client = Client(command_prefix="bob!", intents=disnake.Intents.all())
+    bot = Client(command_prefix="bob!", intents=disnake.Intents.all())
 
-    client.load_extension("cogs.commands.help")
-    client.load_extension("cogs.commands.kick")
-    client.load_extension("cogs.commands.ban")
-    client.load_extension("cogs.logs.message_logs")
-    client.load_extension("cogs.logs.reaction_logs")
+    bot.load_extension("cogs.commands.help")
+    bot.load_extension("cogs.commands.kick")
+    bot.load_extension("cogs.commands.ban")
+    bot.load_extension("cogs.commands.balance")
+    bot.load_extension("cogs.logs.message_logs")
+    bot.load_extension("cogs.logs.reaction_logs")
 
     load_dotenv()
 
-    client.run(os.getenv("TOKEN_BOT"))
+    url: str = os.getenv("SUPABASE_URL")
+    key: str = os.getenv("SUPABASE_KEY")
+    db_client: supabase.Client = create_client(url, key)
+    bot.db = db_client
+
+    bot.run(os.getenv("TOKEN_BOT"))
