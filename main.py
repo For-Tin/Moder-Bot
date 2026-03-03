@@ -22,6 +22,7 @@ if __name__ == "__main__":
 
     client = Client(command_prefix="bob!", intents=disnake.Intents.all())
 
+    client.load_extension("cogs.commands.help")
     client.load_extension("cogs.commands.kick")
     client.load_extension("cogs.commands.ban")
     client.load_extension("cogs.logs.message_logs")
