@@ -16,17 +16,17 @@ class HelpCommand(commands.Cog):
                               description="All commands")
         
         embed.add_field(name="Simple",
-                        value="`/help` - On")
+                        value="`/help` - ON")
         
         embed.add_field(name="Bank",
-                        value="`/balance` - On \n" \
-                        "`/pay` - Off")
+                        value="`/balance` - ON \n" \
+                        "`/pay` - ON")
         
         embed.add_field(name="Mod",
-                        value="`/kick` - On \n" \
-                        "`/ban` - On \n" \
-                        "`/unban` - Off \n" \
-                        "`/mute` - Off")
+                        value="`/kick` - ON \n" \
+                        "`/ban` - ON \n" \
+                        "`/unban` - OFF\n" \
+                        "`/mute` - OFF")
 
         await inter.response.send_message(embed=embed, ephemeral=True)
 
