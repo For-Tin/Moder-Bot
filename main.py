@@ -36,6 +36,7 @@ if __name__ == "__main__":
 
     bot.load_extension("cogs.logs.message_logs")
     bot.load_extension("cogs.logs.reaction_logs")
+    bot.load_extension("cogs.logs.voice_logs")
 
     load_dotenv()
 
