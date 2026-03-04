@@ -14,8 +14,14 @@ class HelpCommand(commands.Cog):
         embed = disnake.Embed(color=colors.GREEN,
                               title="Help",
                               description="All commands")
+        
         embed.add_field(name="Simple",
                         value="`/help` - On")
+        
+        embed.add_field(name="Bank",
+                        value="`/balance` - On \n" \
+                        "`/pay` - Off")
+        
         embed.add_field(name="Mod",
                         value="`/kick` - On \n" \
                         "`/ban` - On \n" \
