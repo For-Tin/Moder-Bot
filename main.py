@@ -27,9 +27,9 @@ if __name__ == "__main__":
     bot = Client(command_prefix="bob!", intents=disnake.Intents.all())
 
     bot.load_extension("cogs.commands.help")
-    bot.load_extension("cogs.commands.kick")
-    bot.load_extension("cogs.commands.ban")
-    bot.load_extension("cogs.commands.balance")
+    bot.load_extension("cogs.commands.mod.kick")
+    bot.load_extension("cogs.commands.mod.ban")
+    bot.load_extension("cogs.commands.bank.balance")
     bot.load_extension("cogs.logs.message_logs")
     bot.load_extension("cogs.logs.reaction_logs")
 
