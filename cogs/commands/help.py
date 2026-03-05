@@ -25,7 +25,7 @@ class HelpCommand(commands.Cog):
         embed.add_field(name="Mod",
                         value="`/kick` - ON \n" \
                         "`/ban` - ON \n" \
-                        "`/unban` - OFF\n" \
+                        "`/unban` - DONT WORK!\n" \
                         "`/mute` - OFF")
 
         await inter.response.send_message(embed=embed, ephemeral=True)

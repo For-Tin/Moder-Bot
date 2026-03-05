@@ -30,6 +30,7 @@ if __name__ == "__main__":
 
     bot.load_extension("cogs.commands.mod.kick")
     bot.load_extension("cogs.commands.mod.ban")
+    # bot.load_extension("cogs.commands.mod.unban")
 
     bot.load_extension("cogs.commands.bank.balance")
     bot.load_extension("cogs.commands.bank.pay")

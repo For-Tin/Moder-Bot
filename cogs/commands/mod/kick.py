@@ -20,7 +20,7 @@ class KickCommand(commands.Cog):
             await inter.response.send_message("I can`t kick myself!", ephemeral=True)
             return
         
-        embed = disnake.Embed(color=colors.RED, title="Kick", description=f"User {member.mention} has been kicked from {inter.guild} for reason: {reason}")
+        embed = disnake.Embed(color=colors.RED, title="Kick", description=f"User {member.mention} has been kicked from {inter.guild} for reason: \n`{reason}`")
         logs_channel = self.bot.get_channel(1476247810985689139)
 
         await member.kick(reason=reason)

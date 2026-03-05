@@ -28,7 +28,7 @@ class PayCommand(commands.Cog):
         sender_balance: float = sender_stat.data["balance"]
         payee_balance: float = payee_stat.data["balance"]
 
-        embed = disnake.Embed(color=colors.BLUE, title="Pay", description=f"User {inter.user.mention} transferred money to {payee.mention}: {quantity}**₿**")
+        embed = disnake.Embed(color=colors.BLUE, title="Pay", description=f"User {inter.user.mention} transferred **{quantity}₿** to {payee.mention}")
         logs_channel = self.bot.get_channel(1476247810985689139)
 
         if sender_balance >= quantity:

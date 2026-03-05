@@ -22,7 +22,7 @@ class BalanceCommand(commands.Cog):
 
         embed = disnake.Embed(color=colors.YELLOW,
                               title="Your Card:",
-                              description=f"Balance: {response.data["balance"]}**₿**")
+                              description=f"Balance: **{response.data["balance"]}₿**")
         
         embed.set_thumbnail(inter.user.display_avatar.url)
         

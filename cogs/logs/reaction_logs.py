@@ -11,10 +11,10 @@ class ReactionLog(commands.Cog):
     @commands.Cog.listener()
     async def on_reaction_add(self, reaction, user):
 
-        if user.author == self.bot.user:
+        if user == self.bot.user:
             return
 
-        embed = disnake.Embed(color=colors.BLUE, title="New Reaction", description=f"{user.mention} add reaction {reaction} on message: {reaction.message.content} (ID: {reaction.message.id})")
+        embed = disnake.Embed(color=colors.BLUE, title="New Reaction", description=f"{user.mention} added reaction `{reaction}` on message \n```{reaction.message.content}``` \nID: {reaction.message.id}")
         logs_channel = self.bot.get_channel(1476247810985689139)
 
         await logs_channel.send(embed=embed)
@@ -22,10 +22,24 @@ class ReactionLog(commands.Cog):
     @commands.Cog.listener()
     async def on_reaction_remove(self, reaction, user):
 
-        if user.author == self.bot.user:
+        if user == self.bot.user:
             return
 
-        embed = disnake.Embed(color=colors.BLUE, title="Reaction Removed", description=f"{user.mention} remove reaction {reaction} on message: {reaction.message.content} (ID: {reaction.message.id})")
+        embed = disnake.Embed(color=colors.BLUE, title="Reaction Removed", description=f"{user.mention} removed reaction `{reaction}` on message \n```{reaction.message.content}``` \nID: {reaction.message.id}")
+        logs_channel = self.bot.get_channel(1476247810985689139)
+
+        await logs_channel.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_reaction_clear(self, message, reactions):
+
+        reaction: list = []
+
+        for t in reactions:
+            emoji = t.emoji
+            reaction.append(emoji)
+
+        embed = disnake.Embed(color=colors.BLUE, title="Reaction Clear", description=f"Reactions `{reaction}` has been cleared on message \n```{message.content}``` \nID: {message.id}")
         logs_channel = self.bot.get_channel(1476247810985689139)
 
         await logs_channel.send(embed=embed)
